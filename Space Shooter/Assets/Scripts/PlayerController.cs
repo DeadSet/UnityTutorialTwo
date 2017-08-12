@@ -18,18 +18,21 @@ public class PlayerController : MonoBehaviour
 
 	private float nextFire;
 	private Rigidbody rb;
+	private AudioSource shotSound;
 
 	void Start()
 	{
 		rb = GetComponent<Rigidbody> ();
+		shotSound = GetComponent<AudioSource> ();
 	}
 
 	void Update()
 	{
-		if (Input.GetButton ("Fire1") && Time.time > nextFire) 
+		if (Input.GetButton ("Jump") && Time.time > nextFire) 
 		{
 			nextFire = Time.time + fireRate;
 			Instantiate (shot, shotSpawn.position, shotSpawn.rotation);
+			shotSound.Play ();
 		}
 	}
 
