@@ -56,6 +56,7 @@ public class GameController : MonoBehaviour {
 				restart = true;
 				break;
 			}
+			hazardCount++;
 		}
 	}
 
