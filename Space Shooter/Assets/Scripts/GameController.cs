@@ -48,14 +48,15 @@ public class GameController : MonoBehaviour {
 				Quaternion spawnRotation = Quaternion.identity;
 				Instantiate (hazard, spawnPosition, spawnRotation);
 				yield return new WaitForSeconds (spawnWait);
+				if (gameOver){
+					restartText.text = "Press 'R' for restart";
+					restart = true;
+					break;
+				}
 			}
 			yield return new WaitForSeconds (waveWait);
 
-			if (gameOver){
-				restartText.text = "Press 'R' for restart";
-				restart = true;
-				break;
-			}
+
 			hazardCount++;
 		}
 	}
